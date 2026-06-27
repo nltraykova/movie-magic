@@ -6,7 +6,7 @@ SoftUni JS Back-End Course Workshop
 ### Setup
  - [x] Initialize Project
  - [X] Add Express Server `npm i express`
- - [] Config debugging and dev script
+ - [X] Config debugging and dev script
  - [] Add Workshop Resources
  - [] Setup Handlebars `npm i express-handlebars`
  - [] Setup static files
