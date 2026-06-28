@@ -41,12 +41,12 @@ SoftUni JS Back-End Course Workshop
 ### Search
  - [X] Show static search page
  - [X] Render all movies
- - [] Modify search form
- - [] Filter movies
-   - [] By year
-   - [] By genre
-   - [] By title 
- - [] Remember search words
+ - [X] Modify search form
+ - [X] Filter movies
+   - [X] By year
+   - [X] By genre
+   - [X] By title 
+ - [X] Remember search words
 ### Bonuses
  - [] Dynamic page title (basic)
  - [] Rating (temp solution)

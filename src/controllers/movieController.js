@@ -4,9 +4,10 @@ import movieService from "../services/movieService.js";
 const movieController = Router();
 
 movieController.get('/search', async (req, res) => {
-    const movies = await movieService.getAll();
+    const filter = req.query;
+    const movies = await movieService.getAll(filter);
 
-    res.render('movies/search', { movies });
+    res.render('movies/search', { movies, filter });
 });
 
 movieController.get('/create', (req, res) => {
