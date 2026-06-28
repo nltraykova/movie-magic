@@ -6,6 +6,3 @@ const routes = Router();
 routes.use('/', homeController);
 
 export default routes;
-
-
-
