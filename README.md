@@ -15,11 +15,11 @@ SoftUni JS Back-End Course Workshop
  - [X] Add Layout
 ### Architecture and dynamic rendering
  - [X] Add home controller
- - [] Add movie data layer
- - [] Add movie service
- - [] Render single movie on home page
- - [] Render all movies on home page
- - [] Show no movies screen
+ - [X] Add movie data layer
+ - [X] Add movie service
+ - [X] Render single movie on home page
+ - [X] Render all movies on home page
+ - [X] Show no movies screen
 ### Create Movie
  - [] Add Movie Controller
  - [] Show create movie page
