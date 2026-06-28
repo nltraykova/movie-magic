@@ -9,6 +9,8 @@ function getById(movieId) {
 }
 
 function create(movie) {
+    movie.rating = Number(movie.rating);
+    
     movieRepository.create(movie);
 }
 

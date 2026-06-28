@@ -62,7 +62,7 @@
       "director": "Director 1",
       "year": "2012",
       "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa0aM4E5Udu61mhGu1RPKGDIUZaw3kOUru5g&s",
-      "rating": "4",
+      "rating": 4,
       "description": "Some Description",
       "id": "99022089-403f-4e41-8663-0f0b92307767"
     }
