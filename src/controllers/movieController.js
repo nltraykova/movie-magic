@@ -7,12 +7,12 @@ movieController.get('/search', async (req, res) => {
     const filter = req.query;
     const movies = await movieService.getAll(filter);
 
-    res.render('movies/search', { movies, filter });
+    res.render('movies/search', { movies, filter, pageTitle: 'Search' });
 });
 
 movieController.get('/create', (req, res) => {
 
-    res.render('movies/create');
+    res.render('movies/create', { pageTitle: 'Create Movie'});
 
 });
 
@@ -29,7 +29,7 @@ movieController.get('/:movieId', async (req, res) => {
 
     const movie = await movieService.getById(movieId);
 
-    res.render('movies/details', { movie });
+    res.render('movies/details', { movie, pageTitle: 'Movie Details' });
 });
 
 
