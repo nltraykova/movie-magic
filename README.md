@@ -21,7 +21,7 @@ SoftUni JS Back-End Course Workshop
  - [X] Render all movies on home page
  - [X] Show no movies screen
 ### Create Movie
- - [] Add Movie Controller
+ - [X] Add Movie Controller
  - [] Show create movie page
  - [X] Add routes
  - [] Add 404 page
