@@ -3,6 +3,12 @@ import movieService from "../services/movieService.js";
 
 const movieController = Router();
 
+movieController.get('/search', async (req, res) => {
+    const movies = await movieService.getAll();
+
+    res.render('movies/search', { movies });
+});
+
 movieController.get('/create', (req, res) => {
 
     res.render('movies/create');
@@ -15,10 +21,6 @@ movieController.post('/create', async (req, res) => {
     await movieService.create(newMovie);
 
     res.redirect('/');
-});
-
-movieController.get('/search', (req, res) => {
-    res.render('movies/search');
 });
 
 movieController.get('/:movieId', async (req, res) => {

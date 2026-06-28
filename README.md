@@ -39,8 +39,8 @@ SoftUni JS Back-End Course Workshop
  - [X] Find movie by id from repository
  - [X] Render details page with dynamic data
 ### Search
- - [] Show static search page
- - [] Render all movies
+ - [X] Show static search page
+ - [X] Render all movies
  - [] Modify search form
  - [] Filter movies
    - [] By year

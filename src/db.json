@@ -54,6 +54,17 @@
       "rating": 8.9,
       "description": "asdasdasd",
       "id": "f1199a15-6163-4213-a279-0cf7abe09a19"
+    },
+    {
+      "title": "New Movie",
+      "category": "animation",
+      "genre": "Music",
+      "director": "Director 1",
+      "date": "2012",
+      "imageUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTa0aM4E5Udu61mhGu1RPKGDIUZaw3kOUru5g&s",
+      "rating": "4",
+      "description": "Some Description",
+      "id": "99022089-403f-4e41-8663-0f0b92307767"
     }
   ]
 }
