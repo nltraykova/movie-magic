@@ -22,9 +22,9 @@ SoftUni JS Back-End Course Workshop
  - [X] Show no movies screen
 ### Create Movie
  - [X] Add Movie Controller
- - [] Show create movie page
+ - [X] Show create movie page
  - [X] Add routes
- - [] Add 404 page
+ - [X] Add 404 page
  - [] Ready body data
  - [] Create movie
    - [] Add action
