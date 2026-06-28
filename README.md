@@ -10,9 +10,9 @@ SoftUni JS Back-End Course Workshop
  - [X] Add Workshop Resources
  - [X] Setup Handlebars `npm i express-handlebars`
  - [X] Setup static files
- - [] Render Home Page
- - [] Render About Page
- - [] Add Layout
+ - [X] Render Home Page
+ - [X] Render About Page
+ - [X] Add Layout
 ### Architecture and dynamic rendering
  - [] Add home controller
  - [] Add movie data layer
