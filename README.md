@@ -25,19 +25,19 @@ SoftUni JS Back-End Course Workshop
  - [X] Show create movie page
  - [X] Add routes
  - [X] Add 404 page
- - [] Ready body data
- - [] Create movie
-   - [] Add action
-   - [] Add service
-   - [] Add repository
- - [] Redirect after creation
- - [] Add unique if for each cerated movie
+ - [X] Ready body data
+ - [X] Create movie
+   - [X] Add action
+   - [X] Add service
+   - [X] Add repository
+ - [X] Redirect after creation
+ - [X] Add unique if for each cerated movie
 ### Details
- - [] Add navigation button for detail page
- - [] Add route with param for details page 
- - [] GetOne movie from service
- - [] Find movie by id from repository
- - [] Render details page with dynamic data
+ - [X] Add navigation button for detail page
+ - [X] Add route with param for details page 
+ - [X] GetOne movie from service
+ - [X] Find movie by id from repository
+ - [X] Render details page with dynamic data
 ### Search
  - [] Show static search page
  - [] Render all movies

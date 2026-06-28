@@ -8,9 +8,14 @@ function getById(movieId) {
     return movieRepository.getById(movieId);
 }
 
+function create(movie) {
+    movieRepository.create(movie);
+}
+
 const movieService = {
     getAll,
     getById,
+    create,
 };
 
 export default movieService;
