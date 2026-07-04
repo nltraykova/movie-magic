@@ -10,8 +10,9 @@ function getById(movieId) {
 
 function create(movie) {
     movie.rating = Number(movie.rating);
+    movie.year = Number(movie.year);
     
-    movieRepository.create(movie);
+    return movieRepository.create(movie);
 }
 
 const movieService = {

@@ -1,5 +1,5 @@
 import fs from 'fs/promises';
-import { v4 as uuid } from 'uuid';
+import { prisma } from '../lib/prisma.js';
 
 async function readDb(collection) {
     const db = await fs.readFile('./src/db.json', 'utf-8');
@@ -50,13 +50,12 @@ async function getById(movieId) {
 }
 
 async function create(movie) {
-    movie.id = uuid();
 
-    const db = await readDb();
+    const result = await prisma.movie.create({
+        data: movie
+    });
 
-    db.movies.push(movie);
-
-    await writeDb(db);
+    return result;
 }
 
 const movieRepository = {
