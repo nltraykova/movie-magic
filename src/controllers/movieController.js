@@ -42,7 +42,7 @@ movieController.get('/:movieId/attach', async (req, res) => {
 
     const artists = await artistService.getAll();
 
-    res.render('movies/attach', { movie, artists })
+    res.render('movies/attach', { movie, artists, pageTitle: 'Attach Artist' })
 });
 
 movieController.post('/:movieId/attach', async (req, res) => {
