@@ -3,19 +3,19 @@ import { prisma } from '../lib/prisma.js';
 import { connected } from 'process';
 
 async function getAll(filter = {}) {
-    let movies = await prisma.movie.findMany();
-
-    if (filter.search) {
-        movies = movies.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
-    };
-
-    if (filter.year) {
-        movies = movies.filter(movie => movie.year === filter.year);
-    };
-
-    if (filter.genre) {
-        movies = movies.filter(movie => movie.genre.toLowerCase() === filter.genre.toLowerCase());
-    };
+    const movies = await prisma.movie.findMany({
+        where: {
+            title: {
+                contains: filter.search,
+                mode: 'insensitive'
+            },
+            year: Number(filter.year) || undefined,
+            genre: {
+                equals: filter.genre || undefined,
+                mode: 'insensitive'
+            }
+        }
+    });
     
     return movies;
 }
