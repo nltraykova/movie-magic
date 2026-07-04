@@ -25,5 +25,21 @@ model Movie {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
+  artists Artist[]
+
   @@map("movies")
+}
+
+model Artist {
+  id Int @id @default(autoincrement())
+  name String
+  age Int
+  born String
+  imageUrl String 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  movies Movie[]
+
+  @@map("artists")
 }
