@@ -38,13 +38,11 @@ async function getAll(filter = {}) {
 }
 
 async function getById(movieId) {
-    const movies = await readDb('movies');
-
-    const movie = movies.find(movie => movie.id === movieId);
-
-    if (!movie) {
-        throw new Error('No movie found!');
-    }
+    const movie = await prisma.movie.findUniqueOrThrow({
+        where: {
+            id: movieId
+        }
+    });
 
     return movie;
 }
