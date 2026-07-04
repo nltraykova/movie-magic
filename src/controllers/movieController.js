@@ -40,7 +40,7 @@ movieController.get('/:movieId/attach', async (req, res) => {
     
     const movie = await movieService.getById(movieId);
 
-    const artists = await artistService.getAll();
+    const artists = await artistService.getAll({ exclude: movie.artists.map(artist => artist.id) });
 
     res.render('movies/attach', { movie, artists, pageTitle: 'Attach Artist' })
 });

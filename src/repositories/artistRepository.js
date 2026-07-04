@@ -1,8 +1,16 @@
 import { prisma } from "../lib/prisma.js";
 import artistController from "../controllers/artistController.js";
 
-async function getAll() {
-    const artists = await prisma.artist.findMany();
+async function getAll(filter = {}) {
+    const artists = await prisma.artist.findMany({
+        where: {
+            id: {
+                notIn: Array.isArray(filter.exclude) 
+                    ? filter.exclude 
+                    : []
+            }
+        }
+    });
 
     return artists;
 }
