@@ -20,7 +20,7 @@ async function writeDb(db) {
 }
 
 async function getAll(filter = {}) {
-    let movies = await readDb('movies');
+    let movies = await prisma.movie.findMany();
 
     if (filter.search) {
         movies = movies.filter(movie => movie.title.toLowerCase().includes(filter.search.toLowerCase()));
