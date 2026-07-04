@@ -4,16 +4,16 @@
         <div class="attach-form">
             <h2>{{movie.title}}</h2>
             <img class="movie" src="{{movie.imageUrl}}">
-            <form action="" method="">
+            <form method="post">
                 <label for="cast">Cast</label>
-                <select id="cast" name="cast">
+                <select id="cast" name="artist">
                     <option value="none" selected>--------</option>
                     {{#each artists}}
                     <option value="{{id}}">{{name}}</option>
                     {{/each}}
                 </select>
                 <div id="center-btn">
-                    <button id="create-btn">Add Cast</button>
+                    <button id="create-btn">Add Artist</button>
                 </div>
             </form>
         </div>

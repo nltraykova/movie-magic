@@ -1,5 +1,6 @@
 import fs from 'fs/promises';
 import { prisma } from '../lib/prisma.js';
+import { connected } from 'process';
 
 async function getAll(filter = {}) {
     let movies = await prisma.movie.findMany();
@@ -38,10 +39,24 @@ async function create(movie) {
     return result;
 }
 
+async function attachArtist(movieId, artistId) {
+    const result = await prisma.movie.update({
+        where: { id: movieId },
+        data: {
+            artists: {
+                connect: { id: artistId }
+            }
+        }
+    });
+
+    return result;
+}
+
 const movieRepository = {
     getAll,
     getById,
     create,
+    attachArtist,
 };
 
 export default movieRepository;
