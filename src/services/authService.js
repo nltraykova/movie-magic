@@ -30,8 +30,6 @@ async function login(userData) {
 
     const token = generateAuthToken(user);
 
-    console.log(token);
-
     return token;
 }
 
