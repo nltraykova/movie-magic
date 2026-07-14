@@ -1,6 +1,4 @@
-import fs from 'fs/promises';
 import { prisma } from '../lib/prisma.js';
-import { connected } from 'process';
 
 async function getAll(filter = {}) {
     const movies = await prisma.movie.findMany({
