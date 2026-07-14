@@ -183,7 +183,7 @@ SoftUni JS Back-End Course Workshop
  - [x] Return token in cookie
 
 ### Logout
- - [] Add logout action
+ - [x] Add logout action
  - [] Use logout on invalid token
 
 ### Authentication & Authorization
