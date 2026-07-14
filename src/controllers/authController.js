@@ -11,10 +11,6 @@ authController.get('/register', (req, res) => {
 authController.post('/register', async (req, res) => {
     const { email, password, repeatPassword } = req.body;
 
-    console.log(email);
-    console.log(password);
-    console.log(repeatPassword);
-
     await authService.register({ email, password, repeatPassword });
 
     res.redirect('/');
