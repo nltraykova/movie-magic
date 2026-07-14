@@ -20,5 +20,13 @@ authController.get('/login', async (req, res) => {
     res.render('auth/login', { pageTitle: 'Login'});
 });
 
+authController.post('/login', async (req, res) => {
+    const { email, password } = req.body;
+
+    await authService.login({ email, password });
+
+    res.redirect('/');
+});
+
 
 export default authController;
