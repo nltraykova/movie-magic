@@ -10,11 +10,12 @@ function getById(movieId) {
     return movieRepository.getById(id);
 }
 
-function create(movie) {
-    movie.rating = Number(movie.rating);
-    movie.year = Number(movie.year);
+function create(movieData, userId) {
+    movieData.rating = Number(movieData.rating);
+    movieData.year = Number(movieData.year);
+    movieData.userId = userId;
     
-    return movieRepository.create(movie);
+    return movieRepository.create(movieData);
 }
 
 function attachArtist(movieId, artistId) {

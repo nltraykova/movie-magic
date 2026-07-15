@@ -35,10 +35,10 @@ async function getById(movieId) {
     return movie;
 }
 
-async function create(movie) {
+async function create(movieData) {
 
     const result = await prisma.movie.create({
-        data: movie
+        data: movieData
     });
 
     return result;
