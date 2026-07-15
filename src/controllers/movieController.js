@@ -64,4 +64,13 @@ movieController.get('/:movieId/edit', isAuth, (req, res) => {
     res.render('movies/edit', { pageTitle: 'Edit Movie'});
 });
 
+movieController.get('/:movieId/delete', isAuth, async (req, res) => {
+    const userId = req.user.id;
+    const movieId = Number(req.params.movieId);
+    
+    await movieService.remove(movieId, userId);
+
+    res.redirect('/');
+});
+
 export default movieController;

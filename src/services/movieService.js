@@ -18,6 +18,20 @@ function create(movieData, userId) {
     return movieRepository.create(movieData);
 }
 
+async function remove(movieId, userId) {
+    const movie = await movieRepository.getById(movieId);
+
+    if (!movie) {
+        throw new Error('Movie not found');
+    };
+
+    if (movie.userId !== userId) {
+        throw new Error('Unauthorized');
+    };
+
+    await movieRepository.remove(movieId, userId);
+}
+
 function attachArtist(movieId, artistId) {
     const movieIdNumber = Number(movieId);
     const artistIdNumber = Number(artistId);
@@ -29,6 +43,7 @@ const movieService = {
     getAll,
     getById,
     create,
+    remove,
     attachArtist,
 };
 
