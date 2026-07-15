@@ -60,4 +60,8 @@ movieController.post('/:movieId/attach', isAuth, async (req, res) => {
     res.redirect(`/movies/${movieId}`);
 });
 
+movieController.get('/:movieId/edit', isAuth, (req, res) => {
+    res.render('movies/edit', { pageTitle: 'Edit Movie'});
+});
+
 export default movieController;
