@@ -29,12 +29,15 @@ movieController.post('/create', isAuth, async (req, res) => {
 
 movieController.get('/:movieId', async (req, res) => {
     const movieId = req.params.movieId;
+    const userId = req.user?.id;
 
     const movie = await movieService.getById(movieId);
 
+    const isOwner = movie.userId && movie.userId === userId;
+
     const ratingStars = '&#x2605;'.repeat(Math.floor(movie.rating));
 
-    res.render('movies/details', { movie, ratingStars, pageTitle: 'Movie Details' });
+    res.render('movies/details', { movie, ratingStars, isOwner, pageTitle: 'Movie Details' });
 });
 
 movieController.get('/:movieId/attach', isAuth, async (req, res) => {
