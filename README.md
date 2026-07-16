@@ -199,7 +199,7 @@ SoftUni JS Back-End Course Workshop
  - [x] Show dynamic details buttons
  - [x] Implement delete button
  - [x] Add static edit page
- - [] Add dynamic values to edit page
+ - [x] Add dynamic values to edit page
  - [] Implement edit on post
 
 ### Dynamic Navigation
