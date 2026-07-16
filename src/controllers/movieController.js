@@ -62,8 +62,13 @@ movieController.post('/:movieId/attach', isAuth, async (req, res) => {
 
 movieController.get('/:movieId/edit', isAuth, async (req, res) => {
     const movieId = req.params.movieId;
+    const userId = req.user.id;
 
     const movie = await movieService.getById(movieId);
+
+    if(movie.userId !== userId) {
+        res.status(401).send('Unauthorized')
+    };
 
     res.render('movies/edit', { movie, pageTitle: 'Edit Movie'});
 });
