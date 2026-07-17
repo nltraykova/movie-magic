@@ -18,6 +18,13 @@ function create(movieData, userId) {
     return movieRepository.create(movieData);
 }
 
+async function edit(movieId, movieData, userId) {
+    movieData.rating = Number(movieData.rating);
+    movieData.year = Number(movieData.year);
+
+    await movieRepository.edit(movieId, movieData, userId);
+}
+
 async function remove(movieId, userId) {
     const movie = await movieRepository.getById(movieId);
 
@@ -43,6 +50,7 @@ const movieService = {
     getAll,
     getById,
     create,
+    edit,
     remove,
     attachArtist,
 };

@@ -61,7 +61,7 @@ movieController.post('/:movieId/attach', isAuth, async (req, res) => {
 });
 
 movieController.get('/:movieId/edit', isAuth, async (req, res) => {
-    const movieId = req.params.movieId;
+    const movieId = Number(req.params.movieId);
     const userId = req.user.id;
 
     const movie = await movieService.getById(movieId);
@@ -71,6 +71,16 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
     };
 
     res.render('movies/edit', { movie, pageTitle: 'Edit Movie'});
+});
+
+movieController.post('/:movieId/edit', isAuth, async (req, res) => {
+    const movieId = Number(req.params.movieId);
+    const userId = req.user.id;
+    const movieData = req.body;
+
+    const movie = await movieService.edit(movieId, movieData, userId);
+
+    res.redirect(`/movies/${movieId}`);
 });
 
 movieController.get('/:movieId/delete', isAuth, async (req, res) => {
