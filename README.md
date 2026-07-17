@@ -208,7 +208,7 @@ SoftUni JS Back-End Course Workshop
 ### Bonuses
  - [] Validate repeat password
  - [] Automatic login on register
- - [] Fix secret
+ - [x] Fix secret
  - [] Fix select on edit
  - [] Make token generation async
  - [] Fix rating
