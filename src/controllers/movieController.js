@@ -70,7 +70,9 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
         res.status(401).send('Unauthorized')
     };
 
-    res.render('movies/edit', { movie, pageTitle: 'Edit Movie'});
+    const categoryOptions = prepareCategoryViewData(movie);
+
+    res.render('movies/edit', { movie, categoryOptions, pageTitle: 'Edit Movie'});
 });
 
 movieController.post('/:movieId/edit', isAuth, async (req, res) => {
@@ -91,5 +93,23 @@ movieController.get('/:movieId/delete', isAuth, async (req, res) => {
 
     res.redirect('/');
 });
+
+function prepareCategoryViewData(movie) {
+    const categories = ['TV Show', 'Animation', 'Movie', 'Documentary', 'Short Film'];
+
+    const categoryOptions = categories.map(category => {
+        const value = category.toLowerCase().replaceAll(' ', '-');
+
+        const option = {
+            value,
+            label: category,
+            selected: movie.category === value
+        };
+
+        return option
+    });
+
+    return categoryOptions;
+}
 
 export default movieController;
