@@ -219,7 +219,7 @@ SoftUni JS Back-End Course Workshop
  - [x] Install zod `npm i zod`
 
 ### Movie validation and error handling
- - [] Create Movie Scheme with Zod
+ - [x] Create Movie Scheme with Zod
  - [] Catch, extract and return errors
  - [] Populate already filled data
  - [] Populate select category
