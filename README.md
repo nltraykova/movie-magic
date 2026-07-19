@@ -216,6 +216,7 @@ SoftUni JS Back-End Course Workshop
  ## Workshop 4 - Validation and Error Handling
 
  - [x] Add resources
+ - [x] Install zod `npm i zod`
 
 ### Movie validation and error handling
  - [] Create Movie Scheme with Zod
