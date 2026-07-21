@@ -14,7 +14,7 @@ datasource db {
 
 model Movie {
   id          Int      @id @default(autoincrement())
-  title       String
+  title       String   @unique
   category    String
   genre       String
   director    String
@@ -27,7 +27,7 @@ model Movie {
   userId      Int?
 
   artists Artist[]
-  user   User?    @relation(fields: [userId], references: [id])
+  user    User?    @relation(fields: [userId], references: [id])
 
   @@map("movies")
 }
@@ -52,8 +52,8 @@ model User {
   password  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  
-  movies    Movie[]
+
+  movies Movie[]
 
   @@map("users")
 }

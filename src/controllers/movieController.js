@@ -1,7 +1,11 @@
 import { Router } from "express";
+import * as z from "zod";
+
 import movieService from "../services/movieService.js";
 import artistService from "../services/artistService.js";
 import { isAuth } from '../middlewares/authMiddleware.js';
+import { createMovieSchema } from "../schemas/movieSchema.js";
+import { title } from "node:process";
 
 const movieController = Router();
 
@@ -13,18 +17,46 @@ movieController.get('/search', async (req, res) => {
 });
 
 movieController.get('/create', isAuth, (req, res) => {
+    const categoryOptions = prepareCategoryViewData();
 
-    res.render('movies/create', { pageTitle: 'Create Movie'});
+    res.render('movies/create', { categoryOptions, pageTitle: 'Create Movie'});
 
 });
 
 movieController.post('/create', isAuth, async (req, res) => {
-    const newMovie = req.body;
     const userId = req.user.id;
+    const newMovie = req.body;
+    
+    try {
+        const movieData = createMovieSchema.parse(newMovie);
 
-    await movieService.create(newMovie, userId);
+        await movieService.create(movieData, userId);
 
-    res.redirect('/');
+        res.redirect('/'); 
+    } catch (error) {
+        let errors = {};
+        let errorMessage = null;
+
+        const categoryOptions = prepareCategoryViewData(newMovie);
+
+        if (error.name === 'ZodError') {
+            errors = z.flattenError(error).fieldErrors;
+            console.log(errors);
+        } else if (error.name === 'PrismaClientKnownRequestError') {
+            switch (error.code) {
+                case 'P2002':
+                    errors = { title: ['Title must be unique'] };
+                    break;
+                case 'P2003':
+                    errors = { category: ['Invalid category'] };
+                    break;
+            }
+        } else {
+            errorMessage = error.message || 'An unexpected error occurred';
+        };
+
+        res.status(400).render('movies/create', { movie: req.body, categoryOptions, errors, error: errorMessage })
+    }
 });
 
 movieController.get('/:movieId', async (req, res) => {
@@ -94,7 +126,7 @@ movieController.get('/:movieId/delete', isAuth, async (req, res) => {
     res.redirect('/');
 });
 
-function prepareCategoryViewData(movie) {
+function prepareCategoryViewData(movie = {}) {
     const categories = ['TV Show', 'Animation', 'Movie', 'Documentary', 'Short Film'];
 
     const categoryOptions = categories.map(category => {
