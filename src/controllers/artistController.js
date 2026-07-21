@@ -1,6 +1,7 @@
 import { Router } from "express";
 import artistService from "../services/artistService";
 import { isAuth } from '../middlewares/authMiddleware.js';
+import { createArtistSchema } from "../schemas/artistSchema.js";
 
 const artistController = Router();
 

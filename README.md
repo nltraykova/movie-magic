@@ -270,7 +270,7 @@ SoftUni JS Back-End Course Workshop
 
 ### Artist validation and error handling
 
-- [] Create schema
+- [x] Create schema
 - [] Validate on create
 - [] Get error message
 

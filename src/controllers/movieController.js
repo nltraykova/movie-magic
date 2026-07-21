@@ -41,7 +41,6 @@ movieController.post('/create', isAuth, async (req, res) => {
 
         if (error.name === 'ZodError') {
             errors = z.flattenError(error).fieldErrors;
-            console.log(errors);
         } else if (error.name === 'PrismaClientKnownRequestError') {
             switch (error.code) {
                 case 'P2002':
@@ -54,6 +53,8 @@ movieController.post('/create', isAuth, async (req, res) => {
         } else {
             errorMessage = error.message || 'An unexpected error occurred';
         };
+
+        console.log()
 
         res.status(400).render('movies/create', { movie: req.body, categoryOptions, errors, error: errorMessage })
     }

@@ -1,4 +1,3 @@
-import { error } from 'node:console';
 import * as z from 'zod';
 
 export const createMovieSchema = z.object({
