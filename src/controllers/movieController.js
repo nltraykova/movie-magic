@@ -54,8 +54,6 @@ movieController.post('/create', isAuth, async (req, res) => {
             errorMessage = error.message || 'An unexpected error occurred';
         };
 
-        console.log()
-
         res.status(400).render('movies/create', { movie: req.body, categoryOptions, errors, error: errorMessage })
     }
 });
