@@ -282,4 +282,4 @@ SoftUni JS Back-End Course Workshop
 
 ### Bonus
 
-- [ ] Fix dynamic page titles
+- [x] Fix dynamic page titles

@@ -13,13 +13,13 @@ movieController.get('/search', async (req, res) => {
     const filter = req.query;
     const movies = await movieService.getAll(filter);
 
-    res.render('movies/search', { movies, filter, pageTitle: 'Search' });
+    res.render('movies/search', { movies, filter });
 });
 
 movieController.get('/create', isAuth, (req, res) => {
     const categoryOptions = prepareCategoryViewData();
 
-    res.render('movies/create', { categoryOptions, pageTitle: 'Create Movie'});
+    res.render('movies/create', { categoryOptions });
 
 });
 
@@ -68,7 +68,7 @@ movieController.get('/:movieId', async (req, res) => {
 
     const ratingStars = '&#x2605;'.repeat(Math.floor(movie.rating));
 
-    res.render('movies/details', { movie, ratingStars, isOwner, pageTitle: 'Movie Details' });
+    res.render('movies/details', { movie, ratingStars, isOwner });
 });
 
 movieController.get('/:movieId/attach', isAuth, async (req, res) => {
@@ -78,7 +78,7 @@ movieController.get('/:movieId/attach', isAuth, async (req, res) => {
 
     const artists = await artistService.getAll({ exclude: movie.artists.map(artist => artist.id) });
 
-    res.render('movies/attach', { movie, artists, pageTitle: 'Attach Artist' })
+    res.render('movies/attach', { movie, artists })
 });
 
 movieController.post('/:movieId/attach', isAuth, async (req, res) => {
@@ -103,7 +103,7 @@ movieController.get('/:movieId/edit', isAuth, async (req, res) => {
 
     const categoryOptions = prepareCategoryViewData(movie);
 
-    res.render('movies/edit', { movie, categoryOptions, pageTitle: 'Edit Movie'});
+    res.render('movies/edit', { movie, categoryOptions });
 });
 
 movieController.post('/:movieId/edit', isAuth, async (req, res) => {
